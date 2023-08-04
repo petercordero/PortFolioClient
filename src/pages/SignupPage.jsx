@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { post } from "../services/authService";
+import { Divider } from "antd";
 
 
 const SignupPage = () => {
@@ -39,57 +40,67 @@ const SignupPage = () => {
 
   
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="container">
+      <Divider><h1>Sign Up</h1></Divider>
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
+        <div>
+        <label>Email:&nbsp;</label>
         <input 
           type="email"
           name="email"
           value={user.email}
           onChange={handleTextChange}
         />
-
-        <label>Password:</label>
+        </div>
+        <br />
+        <div>
+        <label>Password:&nbsp;</label>
         <input 
           type="password"
           name="password"
           value={user.password}
           onChange={handleTextChange}
         />
-
-        <label>Username:</label>
+        </div>
+        <br />
+        <div>
+        <label>Username:&nbsp;</label>
         <input 
           type="text"
           name="username"
           value={user.username}
           onChange={handleTextChange}
         />
-
-        <label>Full Name:</label>
+        </div>
+        <br />
+        <div>
+        <label>Full Name:&nbsp;</label>
         <input 
           type="text"
           name="fullName"
           value={user.fullName}
           onChange={handleTextChange}
         />
-
-        <label>Location:</label>
+        </div>
+        <br />
+        <div>
+        <label>Location:&nbsp;</label>
         <input 
           type="text"
           name="location"
           value={user.location}
           onChange={handleTextChange}
         />
+        </div>
 <br />
         <button type="submit">Sign Up</button>
       </form>
 
       { errorMessage && <p className="error-message">{errorMessage}</p> }
-
+<br />
       <p>Already have account?</p>
-      <Link to="/login"> Login</Link>
+      <Link to="/login"><button>Login</button></Link>
     </div>
   )
 }

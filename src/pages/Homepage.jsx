@@ -1,6 +1,14 @@
+import { Divider } from "antd"
+import { Link } from "react-router-dom"
 const Homepage = () => {
   return (
-    <div>Homepage</div>
+  <div>
+    <Divider><h1>Port Folio ⛵</h1></Divider>
+    <h4>Sign up or login to set sail with your new portfolio!</h4>
+    <br />
+    <Link to="/login"><button>Login</button></Link>
+    <Link to="/signup"><button>Sign Up</button></Link>
+    </div>
   )
 }
 

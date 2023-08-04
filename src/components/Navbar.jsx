@@ -11,12 +11,16 @@ function Navbar() {
       }
 
   return (
-    <nav>
-      <Link to="/">
-        <button>Port Folio ⛵</button>
-      </Link>
-
-      <Link to="/all-portfolios">
+    <nav className="nav navbar navbar-expand-lg bg-body-tertiary">
+    <div className="container-fluid">
+      <Link to="/"><button className="navbar-brand">Port Folio ⛵</button></Link>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      
+      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="nav navbar-nav">
+        <Link to="/all-portfolios">
         <button>All Portfolios</button>
       </Link>
  
@@ -26,10 +30,9 @@ function Navbar() {
             <button>New Portfolio</button>
         </Link>
         <Link to="/user-portfolios">
-            <button>Your Portfolios</button>
+            <button>{user && user.username}'s Portfolios</button>
         </Link>
           <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
         </>
       )}
  
@@ -39,7 +42,10 @@ function Navbar() {
           <Link to="/login"> <button>Login</button> </Link>
         </>
       )}
-    </nav>
+        </div>
+      </div>
+    </div>
+  </nav>
   );
 }
  

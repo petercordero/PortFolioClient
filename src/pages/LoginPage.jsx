@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link, useNavigate } from "react-router-dom";
 import { post } from "../services/authService";
+import { Divider } from "antd";
 
 const LoginPage = () => {
 
@@ -37,32 +38,36 @@ const LoginPage = () => {
   };
   
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
-
+    <div className="container">
+     <Divider><h1>Login</h1></Divider>
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
+        <div>
+        <label>Email:&nbsp;</label>
         <input 
           type="email"
           name="email"
           value={email}
           onChange={handleEmail}
         />
-
-        <label>Password:</label>
+        </div>
+        <br />
+    <div>
+        <label>Password:&nbsp;</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
+        </div>
 <br />
         <button type="submit">Login</button>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
-
+<br />
       <p>Don't have an account yet?</p>
-      <Link to="/signup"> Sign Up</Link>
+     
+      <Link to="/signup"><button>Sign Up</button></Link>
     </div>
   )
 }

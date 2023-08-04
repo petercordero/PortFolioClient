@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div>
       
       <Navbar />
  
@@ -35,7 +35,7 @@ function App() {
 
         <Route element={<LoggedIn />}>
         <Route path="/new-portfolio" element={<NewPortfolio />} />
-        <Route path="/add-project" element={<AddProject/>}/>
+        <Route path="/projects" element={<AddProject/>}/>
         </Route>
 
         <Route element={<NotLoggedIn />}>

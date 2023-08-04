@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { AuthContext } from "../context/auth.context"
 import { post } from "../services/authService"
 import { useNavigate } from "react-router-dom"
+import { Divider } from "antd"
 
 const NewPortfolio = () => {
 
@@ -17,7 +18,7 @@ const NewPortfolio = () => {
         post('/portfolios/new-portfolio', portfolio)
         .then((newPortfolio) => {
             console.log("New Portfolio", newPortfolio)
-            navigate('/portfolio-details/:portfolioId')
+            navigate(`/portfolio/${newPortfolio.data._id}`)
         })
         .catch((err) => {
             console.log(err)
@@ -29,14 +30,19 @@ const NewPortfolio = () => {
       }
 
   return (
-    <div>
-        <h1>New Portfolio</h1>
+    <div className="container">
+        <Divider><h1>New Portfolio</h1></Divider>
         <form onSubmit={handleSubmit}>
-        <label>Cover Image:</label>
+            <div>
+        <label>Cover Image:&nbsp;</label>
             <input type="text" name="image" onChange={handleTextChange}/>
-        <label>Title:</label>
+            </div>
+            <br />
+            <div>
+        <label>Title:&nbsp;</label>
             <input type="text" name="title" onChange={handleTextChange}/>
-        <br />
+            </div>
+            <br />
         <button type="submit">Create Portfolio</button>
         
         </form>
