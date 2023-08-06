@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { post } from "../services/authService";
-import { Divider } from "antd";
+import { Divider, Input } from "antd";
 
 
 const SignupPage = () => {
@@ -46,7 +45,7 @@ const SignupPage = () => {
       <form onSubmit={handleSignupSubmit}>
         <div>
         <label>Email:&nbsp;</label>
-        <input 
+        <Input 
           type="email"
           name="email"
           value={user.email}
@@ -56,7 +55,7 @@ const SignupPage = () => {
         <br />
         <div>
         <label>Password:&nbsp;</label>
-        <input 
+        <Input 
           type="password"
           name="password"
           value={user.password}
@@ -65,18 +64,8 @@ const SignupPage = () => {
         </div>
         <br />
         <div>
-        <label>Username:&nbsp;</label>
-        <input 
-          type="text"
-          name="username"
-          value={user.username}
-          onChange={handleTextChange}
-        />
-        </div>
-        <br />
-        <div>
         <label>Full Name:&nbsp;</label>
-        <input 
+        <Input 
           type="text"
           name="fullName"
           value={user.fullName}
@@ -85,8 +74,8 @@ const SignupPage = () => {
         </div>
         <br />
         <div>
-        <label>Location:&nbsp;</label>
-        <input 
+        <label>City & State:&nbsp;</label>
+        <Input 
           type="text"
           name="location"
           value={user.location}
@@ -101,6 +90,7 @@ const SignupPage = () => {
 <br />
       <p>Already have account?</p>
       <Link to="/login"><button>Login</button></Link>
+      <br />
     </div>
   )
 }

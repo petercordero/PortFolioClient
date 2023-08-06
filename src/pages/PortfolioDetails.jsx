@@ -6,7 +6,6 @@ import { get } from "../services/authService";
 import { AuthContext } from "../context/auth.context";
 import { Divider } from "antd";
 
-
 const PortfolioDetails = () => {
   const [portfolio, setPortfolio] = useState(null);
 
@@ -14,7 +13,6 @@ const PortfolioDetails = () => {
 
   const { user } = useContext(AuthContext);
 
-//    no, use the if stuff
   const getPortfolio = () => {
     get(`/portfolios/portfolio/${portfolioId}`)
       .then((response) => {
@@ -30,27 +28,28 @@ const PortfolioDetails = () => {
     getPortfolio()
   }, [])
 
-  
   return (
     <div className="container">
-        {portfolio &&  <Divider><h1>{portfolio.title}</h1></Divider>}
+        <br />
       <Link to="/all-portfolios">
         <button>Back to portfolios</button>
       </Link>  
-       <br />
-       <br />
+        {portfolio &&  <Divider><h1>{portfolio.title} by {portfolio.owner.fullName}</h1></Divider>}
+        {/* <h4>{portfolio.owner.email} | {portfolio.owner.location}</h4> */}
+      
       {portfolio &&
         portfolio.projects.map((project) => (
             <ProjectCard key={project._id} {...project} />
             ))}
+          {user && <Link to={`/portfolio/edit/${portfolioId}`}>
+        <button>Edit Portfolio</button></Link>}
+           <Divider></Divider>
             {portfolio && (
               <>
-              {/* //this is the if stuff, way better and cleaner 👍 */}
                 {user  &&  user._id === portfolio.owner._id && <AddProject portfolioId={portfolioId} setPortfolio={setPortfolio} />}
               </>
             )}
             <br />
-      <br />
     </div>
   );
 }

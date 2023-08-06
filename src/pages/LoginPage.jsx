@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link, useNavigate } from "react-router-dom";
 import { post } from "../services/authService";
-import { Divider } from "antd";
+import { Divider, Input } from "antd";
 
 const LoginPage = () => {
 
@@ -11,14 +11,12 @@ const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const { storeToken, authenticateUser } = useContext(AuthContext)
-
   
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
@@ -43,7 +41,7 @@ const LoginPage = () => {
       <form onSubmit={handleLoginSubmit}>
         <div>
         <label>Email:&nbsp;</label>
-        <input 
+        <Input 
           type="email"
           name="email"
           value={email}
@@ -53,7 +51,7 @@ const LoginPage = () => {
         <br />
     <div>
         <label>Password:&nbsp;</label>
-        <input
+        <Input
           type="password"
           name="password"
           value={password}

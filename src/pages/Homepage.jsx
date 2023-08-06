@@ -7,6 +7,7 @@ const Homepage = () => {
     <h4>Sign up or login to set sail with your new portfolio!</h4>
     <br />
     <Link to="/login"><button>Login</button></Link>
+    <div className="divider"/>
     <Link to="/signup"><button>Sign Up</button></Link>
     </div>
   )

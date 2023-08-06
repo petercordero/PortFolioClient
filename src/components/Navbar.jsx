@@ -29,8 +29,8 @@ function Navbar() {
         <Link to="/new-portfolio">
             <button>New Portfolio</button>
         </Link>
-        <Link to="/user-portfolios">
-            <button>{user && user.username}'s Portfolios</button>
+        <Link to="/profile">
+            <button>{user && user.fullName}'s Profile</button>
         </Link>
           <button onClick={logOutUser}>Logout</button>
         </>

@@ -8,6 +8,8 @@ import NewPortfolio from "./pages/NewPortfolio";
 import AllPortfolios from "./pages/AllPortfolios";
 import PortfolioDetails from "./pages/PortfolioDetails";
 import AddProject from "./pages/AddProject";
+import EditPortfolio from "./pages/EditPortfolio";
+import Profile from "./pages/Profile";
 
 function App() {
 
@@ -36,6 +38,8 @@ function App() {
         <Route element={<LoggedIn />}>
         <Route path="/new-portfolio" element={<NewPortfolio />} />
         <Route path="/projects" element={<AddProject/>}/>
+        <Route path="/portfolio/edit/:portfolioId" element={<EditPortfolio/>}/>
+        <Route path="/profile" element={<Profile/>}/>
         </Route>
 
         <Route element={<NotLoggedIn />}>

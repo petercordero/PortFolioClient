@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import { AuthContext } from "../context/auth.context"
 import { post } from "../services/authService"
 import { useNavigate } from "react-router-dom"
-import { Divider } from "antd"
+import { Divider, Input } from "antd"
 
 const NewPortfolio = () => {
 
@@ -34,13 +34,13 @@ const NewPortfolio = () => {
         <Divider><h1>New Portfolio</h1></Divider>
         <form onSubmit={handleSubmit}>
             <div>
-        <label>Cover Image:&nbsp;</label>
-            <input type="text" name="image" onChange={handleTextChange}/>
+        <label>Title:&nbsp;</label>
+            <Input type="text" name="title" onChange={handleTextChange}/>
             </div>
             <br />
             <div>
-        <label>Title:&nbsp;</label>
-            <input type="text" name="title" onChange={handleTextChange}/>
+        <label>Cover Image:&nbsp;</label>
+            <Input type="text" name="image" onChange={handleTextChange}/>
             </div>
             <br />
         <button type="submit">Create Portfolio</button>

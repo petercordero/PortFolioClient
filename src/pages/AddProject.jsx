@@ -1,8 +1,8 @@
 import { useState } from "react";
-
+import { Input } from "antd";
 import { post } from "../services/authService";
 
-const AddProject = ({ portfolioId, setPortfolio}) => {
+const AddProject = ({portfolioId, setPortfolio}) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [link, setLink] = useState("");
@@ -25,15 +25,13 @@ const AddProject = ({ portfolioId, setPortfolio}) => {
 
   };
 
-  
   return (
     <div className="container">
       <h3>Add New Project</h3>
-      <br />
       <form onSubmit={handleSubmit}>
         <div>
         <label>Title:&nbsp;</label>
-        <input
+        <Input
           type="text"
           name="title"
           value={title}
@@ -43,7 +41,7 @@ const AddProject = ({ portfolioId, setPortfolio}) => {
         <br />
         <div>
         <label>Image:&nbsp;</label>
-        <input
+        <Input
           type="text"
           name="image"
           value={image}
@@ -53,7 +51,7 @@ const AddProject = ({ portfolioId, setPortfolio}) => {
         <br />
         <div>
         <label>Link:&nbsp;</label>
-        <input
+        <Input
           type="text"
           name="link"
           value={link}
