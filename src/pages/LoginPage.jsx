@@ -27,9 +27,10 @@ const LoginPage = () => {
         console.log('JWT token', response.data.authToken );
         storeToken(response.data.authToken)
         authenticateUser()
-        navigate('/');                             // <== ADD      
+        navigate('/');                                
       })
       .catch((error) => {
+        console.log("error", error)
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })

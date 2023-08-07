@@ -8,8 +8,16 @@ form input {
   width: 20vw
 }
 
-.divider{
+.divider {
   width:30px;
   height:auto;
   display:inline-block;
+}
+
+.project {
+  border: 0.5rem outset #535bf2;
+  border-radius: 12px;
+  margin: 2rem;
+  padding: 1rem;
+  outline-offset: 0.5rem;
 }

@@ -6,24 +6,27 @@ const AddProject = ({portfolioId, setPortfolio}) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [link, setLink] = useState("");
+  const [description, setDescription] = useState("");
   
   const handleSubmit = (e) => {
     console.log("Submitting")
     e.preventDefault();
  
-    const requestBody = { title, image, link, portfolioId };
+    const requestBody = { title, image, link, description, portfolioId };
  
-    post("/projects", requestBody)
+    post(`/projects/${portfolioId}`, requestBody)
       .then((response) => {
         console.log("New project", response.data)
         setTitle("");
         setImage("");
         setLink("");
+        setDescription("");
         setPortfolio(response.data)
       })
       .catch((error) => console.log(error));
 
   };
+  const { TextArea } = Input;
 
   return (
     <div className="container">
@@ -56,6 +59,17 @@ const AddProject = ({portfolioId, setPortfolio}) => {
           name="link"
           value={link}
           onChange={(e) => setLink(e.target.value)}
+        />
+        </div>
+        <br />
+        <div>
+        <label>Description:&nbsp;</label>
+        <TextArea
+          type="text"
+          rows={4}
+          name="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         </div>
         <br />
