@@ -13,8 +13,6 @@ const PortfolioDetails = () => {
 
   const { user } = useContext(AuthContext);
 
-  // let reverse = [...portfolio.projects].reverse()
-
   const getPortfolio = () => {
     get(`/portfolios/portfolio/${portfolioId}`)
       .then((response) => {
@@ -30,13 +28,9 @@ const PortfolioDetails = () => {
     getPortfolio()
   }, [])
 
-
   return (
     <div className="container">
         <br />
-      {/* <Link to="/all-portfolios">
-        <button>Back to All Portfolios</button>
-      </Link>   */}
       {portfolio && 
       
       <>
@@ -46,17 +40,18 @@ const PortfolioDetails = () => {
       </>
       
     }
-        {portfolio &&  <Divider><h1>{portfolio.title} by {portfolio.owner.fullName}</h1></Divider>}
-        {/* <h4>{portfolio.owner.email} | {portfolio.owner.location}</h4> */}
-      
+        {portfolio &&  <Divider><h1>{portfolio.title} by {portfolio.owner.fullName}</h1></Divider> }
+        {portfolio && <h4>{portfolio.owner.email} | {portfolio.owner.location}</h4>}
+        <div className="row row-cols-1 row-cols-md-5 g-4" style={{display:"flex", justifyContent:"center"}}>
       {portfolio &&
         portfolio.projects.map((project) => (
-            <ProjectCard key={project._id} {...project} />
-            ))}
-           <Divider></Divider>
+          <ProjectCard key={project._id} {...project} />
+          ))}
+          </div>
             {portfolio && (
               <>
                 {user  &&  user._id === portfolio.owner._id && <AddProject portfolioId={portfolioId} setPortfolio={setPortfolio} />}
+    
               </>
             )}
             <br />

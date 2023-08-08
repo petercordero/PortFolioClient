@@ -10,6 +10,7 @@ import PortfolioDetails from "./pages/PortfolioDetails";
 import AddProject from "./pages/AddProject";
 import EditPortfolio from "./pages/EditPortfolio";
 import Profile from "./pages/Profile";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
         <Route path="/new-portfolio" element={<NewPortfolio />} />
         <Route path="/projects" element={<AddProject/>}/>
         <Route path="/portfolio/edit/:portfolioId" element={<EditPortfolio/>}/>
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile/:userId" element={<Profile/>}/>
         </Route>
 
         <Route element={<NotLoggedIn />}>
@@ -49,8 +50,10 @@ function App() {
 
         </Route>
 
+
       </Routes>
       
+        <Footer/>
     </div>
   );
 }

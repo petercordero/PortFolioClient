@@ -41,20 +41,22 @@ const LoginPage = () => {
      <Divider><h1>Login</h1></Divider>
       <form onSubmit={handleLoginSubmit}>
         <div>
-        <label>Email:&nbsp;</label>
+        <label>Email</label>
         <Input 
           type="email"
           name="email"
+          placeholder="email@example.com"
           value={email}
           onChange={handleEmail}
         />
         </div>
         <br />
     <div>
-        <label>Password:&nbsp;</label>
+        <label>Password</label>
         <Input
           type="password"
           name="password"
+          placeholder="Password"
           value={password}
           onChange={handlePassword}
         />
@@ -67,6 +69,7 @@ const LoginPage = () => {
       <p>Don't have an account yet?</p>
      
       <Link to="/signup"><button>Sign Up</button></Link>
+      <br />
     </div>
   )
 }

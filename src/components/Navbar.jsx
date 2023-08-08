@@ -11,9 +11,9 @@ function Navbar() {
       }
 
   return (
-    <nav className="nav navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "white"}}>
     <div className="container-fluid">
-      <Link to="/"><button className="navbar-brand">Port Folio ⛵</button></Link>
+      <Link to="/"><h5 className="navbar-brand">Port Folio ⛵</h5></Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -21,25 +21,25 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="nav navbar-nav">
         <Link to="/all-portfolios">
-        <button>All Portfolios</button>
+        <h6>All Portfolios</h6>
       </Link>
  
-      {getToken() && (
+      {getToken() && user && (
         <>      
         <Link to="/new-portfolio">
-            <button>New Portfolio</button>
+            <h6>New Portfolio</h6>
         </Link>
-        <Link to="/profile">
-            <button>{user && user.fullName}'s Profile</button>
+        <Link to={`/profile/${user._id}`}>
+            <h6>{user && user.fullName}'s Profile</h6>
         </Link>
-          <button onClick={logOutUser}>Logout</button>
+          <h6 onClick={logOutUser}>Logout</h6>
         </>
       )}
  
       {!getToken() && (
         <>
-          <Link to="/signup"> <button>Sign Up</button> </Link>
-          <Link to="/login"> <button>Login</button> </Link>
+          <Link to="/signup"> <h6>Sign Up</h6> </Link>
+          <Link to="/login"> <h6>Login</h6> </Link>
         </>
       )}
         </div>

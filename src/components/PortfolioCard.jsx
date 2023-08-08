@@ -11,7 +11,9 @@ const PortfolioCard = ( { title, owner, image, _id } ) => {
       <div className="card-body">
       <Link to={`/portfolio/${_id}`}>
         <h5 className="card-title">{title}</h5></Link>
+        <Link to={`/profile/${owner._id}`}>
         <p className="card-text">{owner.fullName}</p>
+        </Link>
       </div>
     </div>
   </div>

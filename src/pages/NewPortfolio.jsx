@@ -34,12 +34,12 @@ const NewPortfolio = () => {
         <Divider><h1>New Portfolio</h1></Divider>
         <form onSubmit={handleSubmit}>
             <div>
-        <label>Title:&nbsp;</label>
+        <label>Title&nbsp;</label>
             <Input type="text" name="title" onChange={handleTextChange}/>
             </div>
             <br />
             <div>
-        <label>Cover Image:&nbsp;</label>
+        <label>Cover Image&nbsp;</label>
             <Input type="text" name="image" onChange={handleTextChange}/>
             </div>
             <br />

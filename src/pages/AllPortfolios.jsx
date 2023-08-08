@@ -27,14 +27,14 @@ const AllPortfolios = () => {
     }, [])
 
   return (
-    <div className="container">
+    <div className="container" style={{display: "flex", justifyContent: 'center', alignItems: 'center'}}>
 <Divider><h1>All Portfolios</h1></Divider>
 
 <Link to="/new-portfolio">
     <button>New Portfolio</button>
 </Link>
         <br />
-      <div className="row row-cols-1 row-cols-md-5 g-4" style={{display:"flex", justifyContent:"center", marginLeft: "0px"}}>
+      <div className="row row-cols-1 row-cols-md-5 g-4" style={{display:"flex", justifyContent:"center"}}>
         {reverse.map((portfolio) => {
           return (
             <PortfolioCard key={portfolio._id} {...portfolio} />

@@ -15,9 +15,63 @@ form input {
 }
 
 .project {
-  border: 0.5rem outset #535bf2;
+  border: 0.5rem outset #535bf281;
   border-radius: 12px;
   margin: 2rem;
   padding: 1rem;
   outline-offset: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.897);;
 }
+
+body {
+  background-color: lightblue;
+}
+
+
+.footer-basic .social {
+  text-align:center;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid black;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:black;
+  margin-bottom:0;
+}
+
+.footer-basic {
+  background-color: white;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 8rem
+}
+
+/* 
+example of tailwind, check more docs and vids */
+/* @layer {
+  @components { 
+    .card {
+      @apply flex flex-row align-center bg-red-200 rounded-md
+    }
+  }
+} */

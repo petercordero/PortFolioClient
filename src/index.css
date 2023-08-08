@@ -17,15 +17,20 @@
 #root {
   margin: 0;
   text-align: center;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 9rem; 
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: black;
 }
 a:hover {
-  color: #535bf2;
+  color: #535bf281;
+  transition: all;
+  transition-duration: 0.5s;
+  text-decoration: none;
 }
 
 body {
@@ -51,7 +56,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #535bf281;;
 }
 button:focus,
 button:focus-visible {
@@ -74,5 +79,5 @@ button:focus-visible {
 .nav {
   display: flex;
   justify-content: space-evenly !important;
-  width: 100%
+  width: 100%;
 }

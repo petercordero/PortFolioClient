@@ -55,16 +55,11 @@ function EditPortfolio() {
   };
   
   const handleTextChange = (e) => {
-    setPortfolio((...prev) => ({...prev, [e.target.name]: e.target.value}))
+    setPortfolio((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
 
   const handleProjectChange = (e, projectIndex) => {
     e.preventDefault()
-    console.log("e", e)
-    // console.log("projectId", projectId)
-    // console.log("portfolio", portfolio)
-    // console.log("projects", projects)
-    console.log()
     console.log("this", projects[projectIndex])
 
     post(`/projects/edit/${portfolioId}/${projects[projectIndex]._id}`, projects[projectIndex])
@@ -87,6 +82,15 @@ function EditPortfolio() {
      console.log('New projects', newProjects)
      setProjects(newProjects)
   }
+
+  const handlePortfolioInputChange = (e) => {
+
+
+     let newProjects = [...projects]
+     newProjects[projectIndex][e.target.name] = e.target.value
+     console.log('New projects', newProjects)
+     setProjects(newProjects)
+  }
   
   return (
     <div className="container">
@@ -98,21 +102,21 @@ function EditPortfolio() {
         {portfolio ?
         
               <form onSubmit={handleFormSubmit}>
-                <label>Title:</label>
+                <label>Title</label>
                 <Input
                   type="text"
                   name="title"
-                  value={portfolio.title}
-                  onChange={(e) => handleTextChange(e.target.value)}
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
                 <br />
                 <br />
-                <label>Image:</label>
+                <label>Image</label>
                 <Input
                 type="text"
                   name="image"
                   value={portfolio.image}
-                  onChange={(e) => handleTextChange(e.target.value)}
+                  onChange={(e) => setImage(e.target.value)}
                 />
         <br />
         <br />
@@ -132,34 +136,39 @@ function EditPortfolio() {
             <br />
               <h3>{project.title}</h3>
               <h6><a href={project.link} target="_blank" >{project.link}</a></h6>
-          <img src={project.image} alt="no image found" />
+          <img src={project.image} style={{width: "350px"}} alt="no image found" />
     <br />
     <br />
               <h6>{project.description}</h6>
     <Divider></Divider>
-            <label>Title:</label>
+            <label>Title</label>
                 <Input
                   type="text"
                   name="title"
                   value={project.title}
                   onChange={(e) => handleProjectInputChange(e, i)}
                 />
-                <label>Image:</label>
+                <br />
+                <br />
+                <label>Image</label>
                 <Input
                   type="text"
                   name="image"
                   value={project.image}
                   onChange={(e) => handleProjectInputChange(e, i)}
-                  // onChange={(e) => setTitle(e.target.value)}
                 />
-                <label>Link:</label>
+                <br />
+                <br />
+                <label>Link</label>
                 <Input
                 type="text"
                   name="link"
                   value={project.link}
                   onChange={(e) => handleProjectInputChange(e, i)}
                 />
-                <label>Description:</label>
+                <br />
+                <br />
+                <label>Description</label>
                 <TextArea
                 type="text"
                   name="description"

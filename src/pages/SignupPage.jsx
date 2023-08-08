@@ -44,40 +44,44 @@ const SignupPage = () => {
 
       <form onSubmit={handleSignupSubmit}>
         <div>
-        <label>Email:&nbsp;</label>
+        <label>Email</label>
         <Input 
           type="email"
           name="email"
+          placeholder="email@example.com"
           value={user.email}
           onChange={handleTextChange}
         />
         </div>
         <br />
         <div>
-        <label>Password:&nbsp;</label>
+        <label>Password</label>
         <Input 
           type="password"
           name="password"
+          placeholder="Password"
           value={user.password}
           onChange={handleTextChange}
         />
         </div>
         <br />
         <div>
-        <label>Full Name:&nbsp;</label>
+        <label>Full Name</label>
         <Input 
           type="text"
           name="fullName"
+          placeholder="Full Name"
           value={user.fullName}
           onChange={handleTextChange}
         />
         </div>
         <br />
         <div>
-        <label>City & State:&nbsp;</label>
+        <label>City & State</label>
         <Input 
           type="text"
           name="location"
+          placeholder="City & State"
           value={user.location}
           onChange={handleTextChange}
         />
