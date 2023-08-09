@@ -3,9 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { post } from "../services/authService";
 import { Divider, Input } from "antd";
 
-
 const SignupPage = () => {
-
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -13,15 +11,13 @@ const SignupPage = () => {
     location: "",
     username: ""
   })
-
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const navigate = useNavigate();
 
   const handleTextChange = (e) => {
-    setUser((prev) => ({...prev, [e.target.name]: e.target.value}))
+    setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  
+
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
@@ -37,61 +33,61 @@ const SignupPage = () => {
       })
   };
 
-  
+
   return (
     <div className="container">
       <Divider><h1>Sign Up</h1></Divider>
 
       <form onSubmit={handleSignupSubmit}>
         <div>
-        <label>Email</label>
-        <Input 
-          type="email"
-          name="email"
-          placeholder="email@example.com"
-          value={user.email}
-          onChange={handleTextChange}
-        />
+          <label>Email</label>
+          <Input
+            type="email"
+            name="email"
+            placeholder="email@example.com"
+            value={user.email}
+            onChange={handleTextChange}
+          />
         </div>
         <br />
         <div>
-        <label>Password</label>
-        <Input 
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={user.password}
-          onChange={handleTextChange}
-        />
+          <label>Password</label>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={user.password}
+            onChange={handleTextChange}
+          />
         </div>
         <br />
         <div>
-        <label>Full Name</label>
-        <Input 
-          type="text"
-          name="fullName"
-          placeholder="Full Name"
-          value={user.fullName}
-          onChange={handleTextChange}
-        />
+          <label>Full Name</label>
+          <Input
+            type="text"
+            name="fullName"
+            placeholder="Full Name"
+            value={user.fullName}
+            onChange={handleTextChange}
+          />
         </div>
         <br />
         <div>
-        <label>City & State</label>
-        <Input 
-          type="text"
-          name="location"
-          placeholder="City & State"
-          value={user.location}
-          onChange={handleTextChange}
-        />
+          <label>City & State</label>
+          <Input
+            type="text"
+            name="location"
+            placeholder="City & State"
+            value={user.location}
+            onChange={handleTextChange}
+          />
         </div>
-<br />
+        <br />
         <button type="submit">Sign Up</button>
       </form>
 
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
-<br />
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <br />
       <p>Already have account?</p>
       <Link to="/login"><button>Login</button></Link>
       <br />

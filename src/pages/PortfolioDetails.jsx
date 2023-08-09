@@ -8,9 +8,7 @@ import { Divider } from "antd";
 
 const PortfolioDetails = () => {
   const [portfolio, setPortfolio] = useState(null);
-
   const { portfolioId } = useParams();
-
   const { user } = useContext(AuthContext);
 
   const getPortfolio = () => {
@@ -18,7 +16,7 @@ const PortfolioDetails = () => {
       .then((response) => {
         const onePortfolio = response.data;
         console.log("This portfolio", onePortfolio)
-        setPortfolio({...onePortfolio, projects: [...onePortfolio.projects.reverse()]});
+        setPortfolio({ ...onePortfolio, projects: [...onePortfolio.projects.reverse()] });
       })
       .catch((error) => console.log(error));
   };
@@ -30,31 +28,32 @@ const PortfolioDetails = () => {
 
   return (
     <div className="container">
-        <br />
-      {portfolio && 
-      
-      <>
-        {user && user._id === portfolio.owner._id && <Link to={`/portfolio/edit/${portfolioId}`}>
-      <button>Edit Portfolio</button></Link>}
-      
-      </>
-      
-    }
-        {portfolio &&  <Divider><h1>{portfolio.title} by {portfolio.owner.fullName}</h1></Divider> }
-        {portfolio && <h4>{portfolio.owner.email} | {portfolio.owner.location}</h4>}
-        <div className="row row-cols-1 row-cols-md-5 g-4" style={{display:"flex", justifyContent:"center"}}>
+      <br />
       {portfolio &&
-        portfolio.projects.map((project) => (
-          <ProjectCard key={project._id} {...project} />
+
+        <>
+          {user && user._id === portfolio.owner._id && <Link to={`/portfolio/edit/${portfolioId}`}>
+            <button>Edit Portfolio</button></Link>}
+
+        </>
+
+      }
+      {portfolio && <Divider><h1>{portfolio.title} by {portfolio.owner.fullName}</h1></Divider>}
+      {portfolio && <h4>{portfolio.owner.email} | {portfolio.owner.location}</h4>}
+      <br />
+      <div className="row row-cols-1 row-cols-md-5 g-4" style={{ display: "flex", justifyContent: "center" }}>
+        {portfolio &&
+          portfolio.projects.map((project) => (
+            <ProjectCard key={project._id} {...project} />
           ))}
-          </div>
-            {portfolio && (
-              <>
-                {user  &&  user._id === portfolio.owner._id && <AddProject portfolioId={portfolioId} setPortfolio={setPortfolio} />}
-    
-              </>
-            )}
-            <br />
+      </div>
+      {portfolio && (
+        <>
+          {user && user._id === portfolio.owner._id && <AddProject portfolioId={portfolioId} setPortfolio={setPortfolio} />}
+
+        </>
+      )}
+      <br />
     </div>
   );
 }

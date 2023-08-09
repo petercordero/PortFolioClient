@@ -5,7 +5,7 @@ import { get } from "../services/authService";
 
 const AuthContext = createContext();
 
-function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -16,7 +16,7 @@ function AuthProvider({ children }) {
     localStorage.setItem('authToken', token);
   }
 
-  const removeToken = () => {                    
+  const removeToken = () => {
     localStorage.removeItem("authToken");
   }
 
@@ -25,43 +25,43 @@ function AuthProvider({ children }) {
 
     if (storedToken) {
 
-    get('/auth/verify')
-      .then((response) => {
+      get('/auth/verify')
+        .then((response) => {
 
-        const user = response.data;
-      
-        setIsLoggedIn(true);
-        setIsLoading(false);
-        setUser(user);        
-      })
-      .catch((error) => {
+          const user = response.data;
 
-        removeToken();       
-        setIsLoggedIn(false);
-        setIsLoading(false);
-        setUser(null);        
-      });      
+          setIsLoggedIn(true);
+          setIsLoading(false);
+          setUser(user);
+        })
+        .catch((error) => {
+
+          removeToken();
+          setIsLoggedIn(false);
+          setIsLoading(false);
+          setUser(null);
+        });
     } else {
 
-        setIsLoggedIn(false);
-        setIsLoading(false);
-        setUser(null);      
-    }   
+      setIsLoggedIn(false);
+      setIsLoading(false);
+      setUser(null);
+    }
   }
-  
-  const logOutUser = () => {      
+
+  const logOutUser = () => {
     removeToken();
-  
+
     authenticateUser();
     navigate('/')
-  }  
- 
-  
-  useEffect(() => {   
-    authenticateUser()              
+  }
+
+
+  useEffect(() => {
+    authenticateUser()
 
   }, []);
-  
+
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, isLoading, user, setUser, storeToken, authenticateUser, logOutUser }}>

@@ -28,19 +28,19 @@ function App() {
 
   return (
     <div>
-      
+
       <Navbar />
- 
-      <Routes>      
-        <Route path="/" element={ <Homepage /> } />
-        <Route path="/all-portfolios" element={<AllPortfolios/>}/>
-        <Route path="/portfolio/:portfolioId" element={<PortfolioDetails/>}/>
+
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/all-portfolios" element={<AllPortfolios />} />
+        <Route path="/portfolio/:portfolioId" element={<PortfolioDetails />} />
 
         <Route element={<LoggedIn />}>
-        <Route path="/new-portfolio" element={<NewPortfolio />} />
-        <Route path="/projects" element={<AddProject/>}/>
-        <Route path="/portfolio/edit/:portfolioId" element={<EditPortfolio/>}/>
-        <Route path="/profile/:userId" element={<Profile/>}/>
+          <Route path="/new-portfolio" element={<NewPortfolio />} />
+          <Route path="/projects" element={<AddProject />} />
+          <Route path="/portfolio/edit/:portfolioId" element={<EditPortfolio />} />
+          <Route path="/profile/:userId" element={<Profile />} />
         </Route>
 
         <Route element={<NotLoggedIn />}>
@@ -52,8 +52,8 @@ function App() {
 
 
       </Routes>
-      
-        <Footer/>
+
+      <Footer />
     </div>
   );
 }

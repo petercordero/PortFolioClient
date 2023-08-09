@@ -26,11 +26,20 @@ a {
   font-weight: 500;
   color: black;
 }
+
 a:hover {
   color: #535bf281;
   transition: all;
   transition-duration: 0.5s;
   text-decoration: none;
+}
+
+.hover:hover {
+  color: #535bf281;
+  transition: all;
+  transition-duration: 0.5s;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 body {

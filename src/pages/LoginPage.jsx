@@ -5,29 +5,25 @@ import { post } from "../services/authService";
 import { Divider, Input } from "antd";
 
 const LoginPage = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const { storeToken, authenticateUser } = useContext(AuthContext)
-  
   const navigate = useNavigate();
-
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
- 
+
     post('/auth/login', requestBody)
       .then((response) => {
 
-        console.log('JWT token', response.data.authToken );
+        console.log('JWT token', response.data.authToken);
         storeToken(response.data.authToken)
         authenticateUser()
-        navigate('/');                                
+        navigate('/');
       })
       .catch((error) => {
         console.log("error", error)
@@ -35,39 +31,39 @@ const LoginPage = () => {
         setErrorMessage(errorDescription);
       })
   };
-  
+
   return (
     <div className="container">
-     <Divider><h1>Login</h1></Divider>
+      <Divider><h1>Login</h1></Divider>
       <form onSubmit={handleLoginSubmit}>
         <div>
-        <label>Email</label>
-        <Input 
-          type="email"
-          name="email"
-          placeholder="email@example.com"
-          value={email}
-          onChange={handleEmail}
-        />
+          <label>Email</label>
+          <Input
+            type="email"
+            name="email"
+            placeholder="email@example.com"
+            value={email}
+            onChange={handleEmail}
+          />
         </div>
         <br />
-    <div>
-        <label>Password</label>
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePassword}
-        />
+        <div>
+          <label>Password</label>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={handlePassword}
+          />
         </div>
-<br />
+        <br />
         <button type="submit">Login</button>
       </form>
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
-<br />
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <br />
       <p>Don't have an account yet?</p>
-     
+
       <Link to="/signup"><button>Sign Up</button></Link>
       <br />
     </div>

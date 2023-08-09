@@ -9,11 +9,11 @@ import { PortfolioProvider } from './context/portfolio.context.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-    <PortfolioProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </PortfolioProvider>
+      <PortfolioProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </PortfolioProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
