@@ -21,8 +21,7 @@ function EditPortfolio() {
         const onePortfolio = response.data;
         setTitle(onePortfolio.title);
         setImage(onePortfolio.image);
-        setPortfolio(onePortfolio)
-        setProjects(onePortfolio.projects)
+        setPortfolio({ ...onePortfolio, projects: [...onePortfolio.projects.reverse()] })
         console.log('projects stusgfsgfsd', onePortfolio.projects)
       })
       .catch((error) => console.log(error));
@@ -124,8 +123,8 @@ function EditPortfolio() {
         : <p>Loading...</p>
 
       }
-      {projects &&
-        projects.map((project, i) => (
+      {portfolio &&
+        portfolio.projects.map((project, i) => (
           <div key={project._id}>
             <form className="container" onSubmit={(e) => handleProjectChange(e, i)}>
               <div className="project">
@@ -133,7 +132,9 @@ function EditPortfolio() {
                 <br />
                 <br />
                 <h3>{project.title}</h3>
+                <br />
                 <h6><a href={project.link} target="_blank" >{project.link}</a></h6>
+                <br />
                 <img src={project.image} style={{ width: "250px" }} alt="no image found" />
                 <br />
                 <br />

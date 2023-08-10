@@ -51,7 +51,7 @@ const AddProject = ({ portfolioId, setPortfolio }) => {
       <h3>Add New Project</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Title&nbsp;</label>
+          <label>Title</label>
           <Input
             type="text"
             name="title"
@@ -61,16 +61,7 @@ const AddProject = ({ portfolioId, setPortfolio }) => {
         </div>
         <br />
         <div>
-          <label>Image&nbsp;</label>
-          <Input
-            type="file"
-            name="image"
-            onChange={handleFileChange}
-          />
-        </div>
-        <br />
-        <div>
-          <label>Link&nbsp;</label>
+          <label>Link</label>
           <Input
             type="text"
             name="link"
@@ -80,7 +71,16 @@ const AddProject = ({ portfolioId, setPortfolio }) => {
         </div>
         <br />
         <div>
-          <label>Description&nbsp;</label>
+          <label>Image</label>
+          <Input
+            type="file"
+            name="image"
+            onChange={handleFileChange}
+          />
+        </div>
+        <br />
+        <div>
+          <label>Description</label>
           <TextArea
             type="text"
             rows={4}

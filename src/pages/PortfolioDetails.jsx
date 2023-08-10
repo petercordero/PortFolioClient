@@ -40,7 +40,6 @@ const PortfolioDetails = () => {
       }
       {portfolio && <Divider><h1>{portfolio.title} by {portfolio.owner.fullName}</h1></Divider>}
       {portfolio && <h4>{portfolio.owner.email} | {portfolio.owner.location}</h4>}
-      <br />
       <div className="row row-cols-1 row-cols-md-5 g-4" style={{ display: "flex", justifyContent: "center" }}>
         {portfolio &&
           portfolio.projects.map((project) => (
@@ -53,7 +52,6 @@ const PortfolioDetails = () => {
 
         </>
       )}
-      <br />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const PortfolioCard = ({ title, owner, image, _id }) => {
-
   return (
     <div className="col">
       <div className="card" style={{ width: "12rem" }}>

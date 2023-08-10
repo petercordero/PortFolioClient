@@ -33,7 +33,6 @@ const SignupPage = () => {
       })
   };
 
-
   return (
     <div className="container">
       <Divider><h1>Sign Up</h1></Divider>
@@ -85,9 +84,8 @@ const SignupPage = () => {
         <br />
         <button type="submit">Sign Up</button>
       </form>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <br />
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p>Already have account?</p>
       <Link to="/login"><button>Login</button></Link>
       <br />
