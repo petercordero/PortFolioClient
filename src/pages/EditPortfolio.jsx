@@ -4,6 +4,7 @@ import { axiosDelete, post, get } from "../services/authService";
 import { Input, Divider } from "antd";
 import { fileChange } from "../services/fileChange";
 
+
 function EditPortfolio() {
   const [portfolio, setPortfolio] = useState(null);
   const [projects, setProjects] = useState(null)
@@ -22,6 +23,7 @@ function EditPortfolio() {
         setTitle(onePortfolio.title);
         setImage(onePortfolio.image);
         setPortfolio({ ...onePortfolio, projects: [...onePortfolio.projects.reverse()] })
+        setProjects(onePortfolio.projects)
         console.log('projects', onePortfolio.projects)
       })
       .catch((error) => console.log(error));
@@ -31,6 +33,7 @@ function EditPortfolio() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const requestBody = { title, image };
+    console.log("request body ===>", requestBody)
     post(`/portfolios/portfolio/edit/${portfolioId}`, requestBody)
       .then((updatedPortfolio) => {
         console.log("Updated", updatedPortfolio)
@@ -77,12 +80,30 @@ function EditPortfolio() {
   }
 
   const handleFileChange = (e, i) => {
+    console.log("EYE", i)
+    if (i === undefined) {
+      console.log("COVER")
+    }
     setButtonDisabled(true)
     fileChange(e)
       .then((response) => {
         setButtonDisabled(false)
-        setProjects([...projects, projects[i].image = response.data.image])
-        setImage(response.data.image)
+        // if (i) {
+          if (i === undefined) {
+            console.log("COVER")
+            setImage(response.data.image)
+          } else {
+
+            let newProjects = [...projects]
+            newProjects[i].image = response.data.image
+            console.log("This project ===>", i, newProjects[i])
+            setProjects(newProjects)
+          }
+        // } else {
+          // setImage(response.data.image)
+        // }
+        // setProjects([...projects, projects[i].image = response.data.image])
+        console.log("File change", response.data)
       })
       .catch((err) => {
         console.log(err)
@@ -113,7 +134,7 @@ function EditPortfolio() {
           <Input
             type="file"
             name="image"
-            onChange={handleFileChange}
+            onChange={(e) =>handleFileChange(e)}
           />
           <br />
           <br />
