@@ -35,7 +35,7 @@ const SignupPage = () => {
 
   return (
     <div className="container">
-      <Divider><h1>Sign Up</h1></Divider>
+      <Divider><h2>Sign Up</h2></Divider>
 
       <form onSubmit={handleSignupSubmit}>
         <div>

@@ -34,7 +34,7 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <Divider><h1>Login</h1></Divider>
+      <Divider><h2>Login</h2></Divider>
       <form onSubmit={handleLoginSubmit}>
         <div>
           <label>Email</label>

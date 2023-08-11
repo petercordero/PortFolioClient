@@ -44,7 +44,7 @@ const NewPortfolio = () => {
 
     return (
         <div className="container">
-            <Divider><h1>New Portfolio</h1></Divider>
+            <Divider><h2>New Portfolio</h2></Divider>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Title</label>

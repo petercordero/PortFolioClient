@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://port-folio-server.adaptable.app";
+export const SERVER_URL = "http://localhost:4000";

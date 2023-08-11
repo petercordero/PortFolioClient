@@ -43,7 +43,7 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <Divider><h1>{userData && userData.fullName}'s Profile</h1></Divider>
+      <Divider><h2>{userData && userData.fullName}'s Profile</h2></Divider>
       <h4>{userData && userData.email} | {userData && userData.location}</h4>
       <br />
       <Link to="/new-portfolio">

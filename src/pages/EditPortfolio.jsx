@@ -92,7 +92,7 @@ function EditPortfolio() {
 
   return (
     <div className="container">
-      <Divider><h1>Edit Portfolio</h1></Divider>
+      <Divider><h2>Edit Portfolio</h2></Divider>
 
       <button onClick={deletePortfolio}>Delete Portfolio</button>
       <br />
