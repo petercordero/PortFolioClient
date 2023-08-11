@@ -22,7 +22,7 @@ function EditPortfolio() {
         setTitle(onePortfolio.title);
         setImage(onePortfolio.image);
         setPortfolio({ ...onePortfolio, projects: [...onePortfolio.projects.reverse()] })
-        console.log('projects stusgfsgfsd', onePortfolio.projects)
+        console.log('projects', onePortfolio.projects)
       })
       .catch((error) => console.log(error));
 
@@ -117,7 +117,7 @@ function EditPortfolio() {
           />
           <br />
           <br />
-          <button type="submit">Submit Changes to Portfolio</button>
+          <button type="submit" disabled={buttonDisabled}>Submit Changes to Portfolio</button>
         </form>
 
         : <p>Loading...</p>
@@ -133,7 +133,7 @@ function EditPortfolio() {
                 <br />
                 <h3>{project.title}</h3>
                 <br />
-                <h6><a href={project.link} target="_blank" >{project.link}</a></h6>
+                <h6><a href={project.link} target="_blank">{project.link}</a></h6>
                 <br />
                 <img src={project.image} style={{ width: "250px" }} alt="no image found" />
                 <br />
