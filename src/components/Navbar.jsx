@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
 
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
 
   const getToken = () => {
     return localStorage.getItem('authToken')
