@@ -9,7 +9,7 @@ const Homepage = () => {
   }
 
   return (
-    <div className="container" style={{ marginTop: "40px" }}>
+    <div className="container" style={{ marginTop: "30px" }}>
     <Divider><img src={Ship}/></Divider>
     <br />
       {!getToken() && (
@@ -23,6 +23,7 @@ const Homepage = () => {
                </div>
                </>
             )}
+            <br />
     </div>
   )
 }
